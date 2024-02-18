@@ -32,10 +32,9 @@ def index():
         
         # Vectorize the new review text
         new_review_vector = tfidf_vectorizer.transform([new_review_text])
-        
-        # Make rating prediction
-        rating_prediction = rating_model.predict(new_review_vector)
-        prediction = label_encoder.inverse_transform([rating_prediction])[0]
+      
+        condition_prediction = rating_model.predict(new_review_vector)
+        prediction = label_encoder.inverse_transform([condition_prediction])[0]
         
     
     return render_template('index.html', prediction=prediction, review_text=review_text)
