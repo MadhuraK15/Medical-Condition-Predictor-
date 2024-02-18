@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Condition Predictor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Medical Condition Predictor</h1>
+            <p class="lead">Enter your review below and find out the predicted Condition!</p>
+        </div>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="review_text">Enter your review:</label>
+                <textarea class="form-control" id="review_text" name="review_text" rows="4" cols="50">{{ review_text }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict Condition</button>
+        </form>
+        
+        {% if prediction is not none %}
+            <div class="alert alert-info mt-3" role="alert">
+                <h2>Predicted Condition: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
